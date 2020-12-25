@@ -6,11 +6,15 @@ var random: RandomNumberGenerator = RandomNumberGenerator.new()
 
 
 func zeros(matLengthX, matLengthY, matLengthZ=0):
+	#Init returning matrix
 	var matrix = []
+	# iterate through rows of r1
 	for x in range(matLengthX):
 		matrix.append([])
+		# iterate through columns of c2
 		for y in range(matLengthY):
 			matrix[x].append(0)
+			
 	return matrix
 		
 func matmul(mat1, mat2):
@@ -23,13 +27,14 @@ func matmul(mat1, mat2):
 			# iterate through rows of r2
 			for z in range(len(mat2)):
 				result[x][y] += mat1[x][z] * mat2[z][y]
-				
+	
 	return result
-func randn(mat):
+	
+func randn(sizeX,sizeY):
 	#Init with zeros
-	var result = zeros(len(mat), len(mat))
-	for x in range(len(mat)):
-		for y in range(len(mat)):
+	var result = zeros(sizeX, sizeY)
+	for x in range(sizeX):
+		for y in range(sizeY):
 			result[x][y] = random.randfn(1,1)
 	return result
 	
