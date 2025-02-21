@@ -28,23 +28,6 @@ func matmul(mat1, mat2):
 				result[x][y] += mat1[x][z] * mat2[z][y]
 	return result
 
-func pad_matrix_to_power_of_2(mat):
-	var n = len(mat)
-	var m = len(mat[0])
-	var new_size = 1
-	while new_size < max(n, m):
-		new_size *= 2  # Find the next power of 2
-
-	if new_size == n and new_size == m:
-		return mat  # Already a power of 2
-
-	var padded = zeros(new_size, new_size)
-	for x in range(n):
-		for y in range(m):
-			padded[x][y] = mat[x][y]
-	
-	return padded
-
 func randn(sizeX, sizeY):
 	var result = zeros(sizeX, sizeY)
 	for x in range(sizeX):
